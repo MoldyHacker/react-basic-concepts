@@ -13,11 +13,11 @@ class Country extends Component {
         return (
             <div>
                 <div>
-                    <h1>{this.state.name}</h1>
+                    <h1 className="Country">{this.state.name}</h1>
                 </div>
                 <div>
-                    <span>Gold: {this.state.gold} </span>
-                    <button onClick={ this.addToGold }>+</button>
+                    <span className="Gold">Gold Medals: {this.state.gold} </span>
+                    <button onClick={ this.addToGold } className="Button">+</button>
                 </div>
             </div>
         );
