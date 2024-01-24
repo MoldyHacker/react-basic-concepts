@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Grid } from "@mui/material";
+
 import './App.css';
 import Country from './components/Country';
 
@@ -9,7 +11,11 @@ class App extends Component {
         <header className="App-header">
           Country Medals
         </header>
-        <Country />
+        <br/>
+        <Grid container justifyContent="center">
+            <Country />
+        </Grid>
+        
       </div>
     );
   }
