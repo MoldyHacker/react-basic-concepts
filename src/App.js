@@ -39,7 +39,6 @@ class App extends Component {
               onRemoveMedal={this.handleRemoveMedal}
             />)
           }
-            {/* <Country /> */}
         </Grid>
         
       </div>
