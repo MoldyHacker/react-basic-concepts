@@ -3,18 +3,19 @@ import React, { Component } from "react";
 
 
 class Country extends Component {
-    state = {
-        name: 'United States of America',
-        gold: 0,
-    }
+    // state = {
+    //     name: 'United States of America',
+    //     gold: 0,
+    // }
     
-    addToGold = () => {
-        this.setState({ gold: this.state.gold + 1 })
-    }
+    // addToGold = () => {
+    //     this.setState({ gold: this.state.gold + 1 })
+    // }
 
     
 
     render() {
+        const { onAddMedal, onRemoveMedal, country } = this.props;
         return (
             <div>
                 <Container>
@@ -22,18 +23,22 @@ class Country extends Component {
                         <CardContent>
                             <Stack spacing={1}>
                                 <Typography variant="h5" className="Country">
-                                    {this.state.name}
+                                    { country.name }
                                 </Typography>
                                 <Divider/>
                                 <Stack direction="row" spacing={2} alignItems="center" justifyContent="center">
-                                    <Avatar sx={{ bgcolor: "gold", color: "black" }}>{this.state.gold}</Avatar>
+                                    <Avatar sx={{ bgcolor: "gold", color: "black" }}>{country.gold}</Avatar>
                                     <Typography>
                                         Gold Medals
                                     </Typography>
                                 </Stack>
-                                <Button variant="contained" onClick={ this.addToGold }>
+                                <Button variant="contained" onClick={ () => onAddMedal(country.id) }>
                                     Add Medal
                                     <Icon>add</Icon> 
+                                </Button>
+                                <Button variant="contained" onClick={ () => onRemoveMedal(country.id) }>
+                                    Remove Medal
+                                    <Icon>remove</Icon> 
                                 </Button>
                             </Stack>
                         </CardContent>
