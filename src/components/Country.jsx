@@ -36,9 +36,12 @@ class Country extends Component {
                                     Add Medal
                                     <Icon>add</Icon> 
                                 </Button>
-                                <Button variant="contained" onClick={ () => onRemoveMedal(country.id) }>
-                                    Remove Medal
-                                    <Icon>remove</Icon> 
+                                <Button 
+                                    variant="contained" 
+                                    onClick={ () => onRemoveMedal(country.id) } 
+                                    disabled={country.gold <= 0}>
+                                        Remove Medal
+                                        <Icon>remove</Icon> 
                                 </Button>
                             </Stack>
                         </CardContent>
