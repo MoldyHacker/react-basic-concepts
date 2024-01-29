@@ -1,19 +1,8 @@
-import { Container, Card, CardContent, Typography, Divider, Button, Icon, Avatar, Stack } from "@mui/material";
+import { Container, Card, CardContent, Typography, Divider, Icon, Avatar, Stack, IconButton } from "@mui/material";
 import React, { Component } from "react";
 
 
 class Country extends Component {
-    // state = {
-    //     name: 'United States of America',
-    //     gold: 0,
-    // }
-    
-    // addToGold = () => {
-    //     this.setState({ gold: this.state.gold + 1 })
-    // }
-
-    
-
     render() {
         const { onAddMedal, onRemoveMedal, country } = this.props;
         return (
@@ -26,23 +15,75 @@ class Country extends Component {
                                     { country.name }
                                 </Typography>
                                 <Divider/>
-                                <Stack direction="row" spacing={2} alignItems="center" justifyContent="center">
-                                    <Avatar sx={{ bgcolor: "gold", color: "black" }}>{country.gold}</Avatar>
-                                    <Typography>
-                                        Gold Medals
-                                    </Typography>
+                                <Stack 
+                                    direction="row" 
+                                    spacing={2} 
+                                    alignItems="center" 
+                                    justifyContent="space-between">
+                                        <Avatar sx={{ bgcolor: "gold", color: "black" }}>{country.gold}</Avatar>
+                                        <Typography>
+                                            Gold Medals
+                                        </Typography>
+                                    <Stack direction="row" spacing={0}>
+                                        <IconButton 
+                                            color="primary" 
+                                            onClick={ () => onAddMedal(country.id, "gold")}>
+                                                <Icon>add_circle_outlined</Icon>
+                                        </IconButton>
+                                        <IconButton 
+                                            color="error" 
+                                            onClick={ () => onRemoveMedal(country.id, "gold") } 
+                                            disabled={country.gold <= 0}>
+                                                <Icon>remove_circle_outlined</Icon>
+                                        </IconButton>
+                                    </Stack>    
                                 </Stack>
-                                <Button variant="contained" onClick={ () => onAddMedal(country.id) }>
-                                    Add Medal
-                                    <Icon>add</Icon> 
-                                </Button>
-                                <Button 
-                                    variant="contained" 
-                                    onClick={ () => onRemoveMedal(country.id) } 
-                                    disabled={country.gold <= 0}>
-                                        Remove Medal
-                                        <Icon>remove</Icon> 
-                                </Button>
+                                <Stack 
+                                    direction="row" 
+                                    spacing={2} 
+                                    alignItems="center" 
+                                    justifyContent="space-between">
+                                        <Avatar sx={{ bgcolor: "silver", color: "black" }}>{country.silver}</Avatar>
+                                        <Typography>
+                                            Silver Medals
+                                        </Typography>
+                                    <Stack direction="row" spacing={0}>
+                                        <IconButton 
+                                            color="primary" 
+                                            onClick={ () => onAddMedal(country.id, "silver")}>
+                                                <Icon>add_circle_outlined</Icon>
+                                        </IconButton>
+                                        <IconButton 
+                                            color="error" 
+                                            onClick={ () => onRemoveMedal(country.id, "silver") } 
+                                            disabled={country.silver <= 0}>
+                                                <Icon>remove_circle_outlined</Icon>
+                                        </IconButton>
+                                    </Stack>    
+                                </Stack>
+                                <Stack 
+                                    direction="row" 
+                                    spacing={2} 
+                                    alignItems="center" 
+                                    justifyContent="space-between">
+                                        <Avatar sx={{ bgcolor: "orange", color: "black" }}>{country.bronze}</Avatar>
+                                        <Typography>
+                                            Bronze Medals
+                                        </Typography>
+                                    <Stack direction="row" spacing={0}>
+                                        <IconButton 
+                                            color="primary" 
+                                            onClick={ () => onAddMedal(country.id, "bronze")}>
+                                                <Icon>add_circle_outlined</Icon>
+                                        </IconButton>
+                                        <IconButton 
+                                            color="error" 
+                                            onClick={ () => onRemoveMedal(country.id, "bronze") } 
+                                            disabled={country.bronze <= 0}>
+                                                <Icon>remove_circle_outlined</Icon>
+                                        </IconButton>
+                                    </Stack>    
+                                </Stack>
                             </Stack>
                         </CardContent>
                     }</Card>
