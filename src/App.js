@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Avatar, Stack, Typography } from "@mui/material";
+import { Grid, Avatar, Stack } from "@mui/material";
 
 import './App.css';
 import Country from './components/Country';
