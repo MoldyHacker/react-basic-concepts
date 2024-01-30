@@ -5,7 +5,13 @@
 
 .App-header {
   opacity: 0.8;
-  font-size: 128px;
+  width: 100%;
+  background-color: gray;
+}
+
+.header-text {
+  font-size: 64px;
+  font-weight: bold;
 }
 
 .Button {

@@ -1,10 +1,11 @@
-import { Container, Card, CardContent, Typography, Divider, Icon, Avatar, Stack, IconButton } from "@mui/material";
+import { Container, Card, CardContent, Badge, Typography, Divider, Icon, Avatar, Stack, IconButton } from "@mui/material";
 import React, { Component } from "react";
 
 
 class Country extends Component {
     render() {
         const { onAddMedal, onRemoveMedal, country } = this.props;
+        const totalMedals = country.gold + country.silver + country.bronze;
         return (
             <div>
                 <Container>
@@ -13,6 +14,11 @@ class Country extends Component {
                             <Stack spacing={1}>
                                 <Typography variant="h5" className="Country">
                                     { country.name }
+                                    <Badge 
+                                    badgeContent={totalMedals}
+                                    color="primary">
+                                        <Icon sx={{ fontSize: 30 }}>emoji_events_outlined</Icon>
+                                    </Badge>
                                 </Typography>
                                 <Divider/>
                                 <Stack 

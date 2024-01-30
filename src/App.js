@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from "@mui/material";
+import { Grid, Avatar, Stack, Typography } from "@mui/material";
 
 import './App.css';
 import Country from './components/Country';
@@ -36,7 +36,15 @@ class App extends Component {
     return ( 
       <div className="App">
         <header className="App-header">
-          Country Medals
+          <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
+            <div className='header-text'>
+              Medal Tracker
+            </div>
+            <Avatar sx={{ bgcolor: "gold", color: "black" }}>{this.totalMedals}</Avatar>
+          </Stack>
+          
+          
+          
         </header>
         <br/>
         <Grid container justifyContent="center">
