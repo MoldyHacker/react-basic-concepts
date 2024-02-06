@@ -19,11 +19,10 @@ class Country extends Component {
                                     color="primary">
                                         <Icon sx={{ fontSize: 30 }}>emoji_events_outlined</Icon>
                                     </Badge>
-                                    <IconButton aria-label="delete" onClick={() => onRemoveCountry(country.id)}>
+                                    <IconButton className="trash" sx={{ pl: 4, pr: 0 }} aria-label="delete" onClick={() => onRemoveCountry(country.id)}>
                                         <Icon color="error">delete</Icon>
                                     </IconButton>
                                 </Typography>
-                                
                                 <Divider/>
                                 <Stack 
                                     direction="row" 
