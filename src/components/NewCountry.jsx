@@ -31,10 +31,15 @@ class NewCountry extends Component {
                         // Handle country name with whitespace
                         // ...
                         console.log("Country name cannot contain whitespace");
+                    } else if (countryName === "") {
+                        // Proceed with saving the country name
+                        // ...
+                        console.log("Country name cannot contain whitespace");
                     } else {
                         // Proceed with saving the country name
                         // ...
                         console.log("Country name is valid");
+                        onAddCountry(countryName);
                     }
                 };
                 const handleSave = (event) => {
@@ -61,8 +66,8 @@ class NewCountry extends Component {
                                 component: 'form',
                                 onSubmit: (event) => {
                                     event.preventDefault();
-                                    // checkCountry(event.target.country.value.trim());
-                                    onAddCountry(event.target.country.value.trim());
+                                    checkCountry(event.target.country.value.trim());
+                                    // onAddCountry(event.target.country.value.trim());
                                     this.handleClose();
                                 },
                             }}
