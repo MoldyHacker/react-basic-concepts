@@ -61,8 +61,8 @@ class NewCountry extends Component {
                                 component: 'form',
                                 onSubmit: (event) => {
                                     event.preventDefault();
-                                    checkCountry(event.target.country.value.trim());
-                                    // onAddCountry(event.target.country.value.trim());
+                                    // checkCountry(event.target.country.value.trim());
+                                    onAddCountry(event.target.country.value.trim());
                                     this.handleClose();
                                 },
                             }}
