@@ -28,10 +28,9 @@ class App extends Component {
   handleAddCountry = (countryName) => {
     const country = { id: this.state.countries.length + 1, name: countryName, gold: 0, silver: 0, bronze: 0 }
     this.setState({ countries: [...this.state.countries, country]})
-    // const country = this.state.countries.find(country => country.id === countryId)
-    // country[medal]++
-    
-    // this.setState({ countries: this.state.countries.map(c => c.id === country.id ? country : c)})
+  }
+  handleRemoveCountry = (countryId) => {
+    this.setState({ countries: this.state.countries.filter(country => country.id !== countryId)})
   }
   get totalMedals() {
     let total = 0
@@ -63,6 +62,7 @@ class App extends Component {
               country={country} 
               onAddMedal={this.handleAddMedal}
               onRemoveMedal={this.handleRemoveMedal}
+              onRemoveCountry={this.handleRemoveCountry}
             />)
           }
         </Grid>

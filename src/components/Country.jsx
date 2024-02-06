@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 class Country extends Component {
     render() {
-        const { onAddMedal, onRemoveMedal, country } = this.props;
+        const { onAddMedal, onRemoveMedal, country, onRemoveCountry } = this.props;
         const totalMedals = country.gold + country.silver + country.bronze;
         return (
             <div>
@@ -19,7 +19,11 @@ class Country extends Component {
                                     color="primary">
                                         <Icon sx={{ fontSize: 30 }}>emoji_events_outlined</Icon>
                                     </Badge>
+                                    <IconButton aria-label="delete" onClick={() => onRemoveCountry(country.id)}>
+                                        <Icon color="error">delete</Icon>
+                                    </IconButton>
                                 </Typography>
+                                
                                 <Divider/>
                                 <Stack 
                                     direction="row" 
