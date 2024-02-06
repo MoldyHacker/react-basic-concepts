@@ -3,6 +3,7 @@ import { Grid, Avatar, Stack } from "@mui/material";
 
 import './App.css';
 import Country from './components/Country';
+import NewCountry from './components/NewCountry';
 
 class App extends Component {
   state = {
@@ -23,6 +24,14 @@ class App extends Component {
     country.gold > 0 ? country[medal]-- : country[medal] = 0
     
     this.setState({ countries: this.state.countries.map(c => c.id === country.id ? country : c)})
+  }
+  handleAddCountry = (countryName) => {
+    const country = { id: this.state.countries.length + 1, name: countryName, gold: 0, silver: 0, bronze: 0 }
+    this.setState({ countries: [...this.state.countries, country]})
+    // const country = this.state.countries.find(country => country.id === countryId)
+    // country[medal]++
+    
+    // this.setState({ countries: this.state.countries.map(c => c.id === country.id ? country : c)})
   }
   get totalMedals() {
     let total = 0
@@ -57,6 +66,7 @@ class App extends Component {
             />)
           }
         </Grid>
+        <NewCountry onAddCountry={ this.handleAddCountry } />
         
       </div>
     );
