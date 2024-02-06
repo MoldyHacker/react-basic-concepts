@@ -22,10 +22,15 @@ class NewCountry extends Component {
                 // const [open, setOpen] = React.useState(false);
                 const { open } = this.state;
                 const { onAddCountry } = this.props;
+                const fabStyle = {
+                    position: 'absolute',
+                    bottom: 20,
+                    right: 20,
+                };
                 return (
                     <React.Fragment>
                         {/* <FormDialog/> */}
-                        <Fab color="primary" variant="extended" onClick={ this.handleClickOpen }>
+                        <Fab sx={fabStyle} color="primary" variant="extended" onClick={ this.handleClickOpen }>
                             <Icon sx={{ mr: 1 }}>add</Icon>
                             Add Country
                         </Fab>
