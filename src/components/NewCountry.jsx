@@ -19,7 +19,6 @@ class NewCountry extends Component {
     };
 
             render() {
-                // const [open, setOpen] = React.useState(false);
                 const { open } = this.state;
                 const { onAddCountry } = this.props;
                 const fabStyle = {
@@ -27,9 +26,30 @@ class NewCountry extends Component {
                     bottom: 20,
                     right: 20,
                 };
+                const checkCountry = (countryName) => {
+                    if (/\s/.test(countryName)) {
+                        // Handle country name with whitespace
+                        // ...
+                        console.log("Country name cannot contain whitespace");
+                    } else {
+                        // Proceed with saving the country name
+                        // ...
+                        console.log("Country name is valid");
+                    }
+                };
+                const handleSave = (event) => {
+                    event.preventDefault();
+                    const countryName = event.target.country.value.trim();
+                    if (countryName !== "") {
+                        // Save the country name
+                        // ...
+                    } else {
+                        // Handle empty country name
+                        // ...
+                    }
+                };
                 return (
                     <React.Fragment>
-                        {/* <FormDialog/> */}
                         <Fab sx={fabStyle} color="primary" variant="extended" onClick={ this.handleClickOpen }>
                             <Icon sx={{ mr: 1 }}>add</Icon>
                             Add Country
@@ -41,7 +61,8 @@ class NewCountry extends Component {
                                 component: 'form',
                                 onSubmit: (event) => {
                                     event.preventDefault();
-                                    onAddCountry(event.target.country.value);
+                                    checkCountry(event.target.country.value.trim());
+                                    // onAddCountry(event.target.country.value.trim());
                                     this.handleClose();
                                 },
                             }}
